@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const PostSchema = new mongoose.Schema({
-    cidade:{
+    titulo:{
         type: String,
         required:true,
         unique:true

@@ -40,7 +40,7 @@ router.delete("/:id", async (req, res) => {
             res.status(404).json("Usuario não encontrado")           
             }
     } else {
-        res.status(401).json("Deleção recusada, faça com a sua conta !")
+        res.status(401).json("Deleção recusada, faça com a sua conta !!!!")
     }            
 })
 
@@ -48,8 +48,8 @@ router.delete("/:id", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
     try {
-        const user = await  User.findByIdAndUpdate(req.params.id)
-        const {senha, ...outros} = user._doc
+        const user = await  User.findById(req.params.id)
+        const { senha, ...outros } = user._doc
         res.status(200).json(outros)
     } catch(err){
         res.status(500).json(err)
