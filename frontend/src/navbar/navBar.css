@@ -14,7 +14,42 @@
 } */
 .navleft,.navright {
     flex: 3;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.menuIcon{
+    font-size: 20px;
+    margin-right:10px;
+    color:#444;
+    cursor:pointer;
 }
 .navcenter {
     flex: 6;
+}
+.menuImg{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.navlist {
+    display:flex;
+    justify-content:center;
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+.navlistitem {
+    margin-right:20px;
+    font-size:18px;
+    font-weight:300;
+    cursor:pointer;
+}
+.menuSearchIcon{
+    font-size:18px;
+    color:#666;
+    cursor:pointer;
+    margin-left:15px;
 }
