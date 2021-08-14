@@ -1,0 +1,52 @@
+.fileEstilo{
+    display:none;
+}
+.postar{
+    padding-top: 50px;
+}
+.postarImagem{
+    margin-left: 15px;
+    margin-left: 150px;
+    width:70vw;
+    height:250px;
+    border-radius:10px;
+    object-fit: cover;
+}
+.postarFormulario{
+    position: relative;
+}
+.postarFormularioGrupo{
+    margin-left: 150px;
+    display:flex;
+    align-items: center;
+}
+.postarIcon{
+    width:25px;
+    height:25px;
+    padding:10px;
+    border-radius: 50px;   
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.textEstilo{
+    font-size: 30px;
+    border:none;
+    padding:20px;
+    width: 70vw;
+}
+.postarSubmit{
+    position:absolute;
+    top: 20px;
+    right:50px;
+    color:white;
+    font-size: 16px;
+    background-color:rgb(110, 110, 236);
+    padding:10px;
+    border-radius:5px;
+    cursor: pointer;
+}
+.postarImagem{
+
+}

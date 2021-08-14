@@ -1,0 +1,62 @@
+.modificacao{
+    display:flex;
+}
+.modificacaoContainer{
+    flex:9;
+    padding: 20px;
+}
+.modificacaoTitulo{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.alterarTitulo{
+    font-size: 25px;
+    margin-bottom: 20px;
+    color:blue;
+}
+.deletarTitulo{
+    font-size: 25px;
+    color:red;
+    cursor:pointer;
+}
+.modificacaFormulario{
+    display:flex;
+    flex-direction:column;
+}
+.modificacaoFotoPerfil{
+    display:flex;
+    align-items: center;
+    margin:10px 0;
+}
+.modificacaoFotoPerfil > img{
+    width: 70px;
+    height:70px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.modificacaoFotoPerfilIcon{
+    width: 30px;
+    height:30px;
+    border-radius:50%;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.modificacaFormulario > input {
+    height: 30px;
+    border:none;
+    border-bottom: 1px solid black;
+}
+.postarSubmit{
+    width:150px;
+    align-self: center;
+    border: none;
+    border-radius: 5px;
+    background-color:tomato;
+    padding: 10px;
+    margin: 20px;
+    cursor: pointer;
+}
