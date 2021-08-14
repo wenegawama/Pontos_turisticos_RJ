@@ -40,7 +40,7 @@ app.use('/api/categories', categoryRoute)
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {
-    console.log("Iniciando o servidorrrr express.......")
+    console.log("Iniciando o servidorrrr express....")
 })
 
 
