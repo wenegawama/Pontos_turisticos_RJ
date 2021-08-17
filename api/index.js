@@ -1,8 +1,16 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
 require('dotenv').config()
 app.use(express.json())
+app.use((req,res,next)=> {
+    //console.log('Acessou o middlware')
+    res.header("Access-Control-Allow-Origin","*")
+    app.use(cors())
+    next()
+})
 const mongoose = require('mongoose')
+
 const router = require('express').Router()
 const authRoute = require('../api/routes/auth')
 const userRoute = require('../api/routes/users')
@@ -40,7 +48,7 @@ app.use('/api/categories', categoryRoute)
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {
-    console.log("Iniciando o servidorrrr express....")
+    console.log("Iniciando o servidorrr express.......")
 })
 
 

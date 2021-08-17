@@ -13,7 +13,7 @@
     object-fit: cover;
 }
 .postarFormulario{
-    position: relative;
+   
 }
 .postarFormularioGrupo{
     margin-left: 150px;
@@ -38,8 +38,8 @@
 }
 .postarSubmit{
     position:absolute;
-    top: 20px;
-    right:50px;
+    top: 100px;
+    right:30px;
     color:white;
     font-size: 16px;
     background-color:rgb(110, 110, 236);
