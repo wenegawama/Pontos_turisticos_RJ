@@ -14,9 +14,9 @@ router.post("/", async (req, res) => {
 
 //Todas as categorias
 
-router.post("/", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
-        const cats = Category.find()
+        const cats = Category.findAll()
         res.status(200).json(cats)
     } catch(err){
         res.status(500).json(err)

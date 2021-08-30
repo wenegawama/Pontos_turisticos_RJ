@@ -1,22 +1,28 @@
 const express = require('express')
-const cors = require('cors')
 const app = express()
-require('dotenv').config()
-app.use(express.json())
-app.use((req,res,next)=> {
-    //console.log('Acessou o middlware')
-    res.header("Access-Control-Allow-Origin","*")
-    app.use(cors())
-    next()
-})
+const dotenv = require('dotenv')
 const mongoose = require('mongoose')
-
-const router = require('express').Router()
 const authRoute = require('../api/routes/auth')
 const userRoute = require('../api/routes/users')
 const postRoute = require('../api/routes/posts')
 const categoryRoute = require('../api/routes/categories')
 const multer = require('multer')
+const path = require("path")
+const cors = require('cors')
+
+dotenv.config()
+app.use(express.json())
+/*app.use(cors())
+app.use((req,res,next)=> {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+})*/
+
+app.use("/images", express.static(path.join(__dirname, "/images")))
+
 
 mongoose.connect(process.env.MONGO_URL_CONNECT,
     {
@@ -31,7 +37,7 @@ mongoose.connect(process.env.MONGO_URL_CONNECT,
         destination:(req,file, cb) => {
             cb(null, "images")
         }, filename: (req, file,cb) => {
-            cb(null, req.body.name)
+            cb(null, "hello.jpg")
         }
     })
 
@@ -48,7 +54,7 @@ app.use('/api/categories', categoryRoute)
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {
-    console.log("Iniciando o servidorrr express.......")
+    console.log("Iniciando o servidorr express...")
 })
 
 
