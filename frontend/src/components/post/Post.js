@@ -1,4 +1,5 @@
 import './post.css'
+import {Link} from "react-router-dom"
 
 function Post({post}) {
     return (
@@ -13,11 +14,11 @@ function Post({post}) {
                 <div className="postCats">
                     {post.categories.map((c) => (
                         <span className="postCats">{c.name}</span>
-
-                    ))}
-                    
+                    ))}                   
                 </div>
-                <span className="postTitulo">{post.titulo}</span>
+                <Link to= {`/post/${post._id}`} className="link" >
+                    <span className="postTitulo">{post.titulo}</span>
+                </Link>
                 
                     <span className="postDate" >{new Date(post.createdAt).toDateString()}</span>
             </div>
