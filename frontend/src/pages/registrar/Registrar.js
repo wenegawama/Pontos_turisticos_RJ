@@ -1,15 +1,29 @@
 import { Link} from "react-router-dom"
 import { useState } from "react"
 import './registrar.css'
+import axios from 'axios'
 
 
 function Registrar() {
     const [username, setUsername] = useState("")
     const [senha, setSenha] = useState("")
     const [email, setEmail] = useState("")
+    const [error,setError] = useState(false)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        setError(false)
+        try{
+            const res = await axios.post("/auth/registrar", {
+                username,
+                email,
+                senha
+            })
+            res.data && window.location.replace("/login")
+        } catch(err){
+            setError(true)
+        }
+
     }
     return (
         <div>
@@ -30,7 +44,10 @@ function Registrar() {
                     />
                     <button className="registrarButton" type="submit">Registrar</button>
                 </form>
-                <Link className="link" to="/login">Login</Link>
+                <Link className="link" to="/login">
+                    Login
+                </Link>
+                {error &&<span style={{color: "red", marginTop:"10px"}}> Algo deu erro, por favor tente novamente !</span>}
             </div>
             
         </div>

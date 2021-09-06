@@ -26,6 +26,10 @@
     background-color: aqua;
     cursor: pointer;
 }
+.loginButton:disabled {
+    cursor: not-allowed;
+    background-color: lightcoral;
+}
 .registrarButton{   
     background-color:lightcoral;
     color:white;

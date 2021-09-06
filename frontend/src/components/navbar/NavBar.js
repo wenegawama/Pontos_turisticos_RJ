@@ -1,9 +1,11 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom"
+import { Context } from "../../context/Context"
 import './navBar.css'
 
 
 export default function NavBar() {
-  const user= false
+  const { user } = useContext(Context) 
   return (
     <div className="navbar">
         {/*<div className="logo">
