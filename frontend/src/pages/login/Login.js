@@ -2,7 +2,7 @@ import { Link} from "react-router-dom"
 import { Context } from "../../context/Context"
 import './login.css'
 import axios from 'axios'
-import { userRef } from "react"
+import { useRef } from "react"
 
 
 function Login() {
@@ -34,7 +34,7 @@ function Login() {
                         type="email"
                         className="loginInput"
                         placeholder="Escreva seu nome de usúario"
-                        ref={userRef}
+                        ref={useRef}
                         />
                     <label>Senha</label>
                     <input type="password" className="loginInput" placeholder="Escreva sua senha" ref={senhaRef}/>

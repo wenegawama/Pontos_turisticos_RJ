@@ -5,7 +5,12 @@ import './navBar.css'
 
 
 export default function NavBar() {
-  const { user } = useContext(Context) 
+  const { user, dispatch } = useContext(Context) 
+
+  const handleLogout = () => {
+    dispatch({type:"LOGOUT"})
+  }
+
   return (
     <div className="navbar">
         {/*<div className="logo">
@@ -23,12 +28,12 @@ export default function NavBar() {
                   <Link className="link" to="/">HOME</Link>
                 </li>
                 <li className="navlistitem"><Link to="/postar">POSTAR</Link></li>
-                <li className="navlistitem">{user && "LOGOUT"}</li>
+                <li className="navlistitem" onclick={handleLogout}>{user && "LOGOUT"}</li>
               </ul>
             </div>
             <div className="navright">
               {
-                user ? (<img className="menuImg" src="https://img.ibxk.com.br/2019/02/17/17124052466014.jpg?w=704" />) : (
+                user ? (<img className="menuImg" src={user.fotoDePerfil} alt="Foto do perfil do úsuario" />) : (
                   <ul className="navlist">
                     <li className="navlistitem">
                       <Link className="link" to="/login">LOGIN</Link>

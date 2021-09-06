@@ -1,15 +1,40 @@
-import React, { useState } from "react";
-
-import api from '../../api/api'
+import  { useContext useState } from "react";
+import axios from 'axios'
 import './postar.css'
+import {Context} from "../../context/Context"
 
 function Postar() {
-    const [imagem, setImagem] = useState("")
+    const [foto, setFoto] = useState(null)
     const [titulo, setTitulo] = useState("")
     const [description, setDescription] = useState("")
+    const {user} = useContext(Context)
 
-    const submit = async () => {
-        const dados = { foto: imagem, titulo: titulo, description: description}
+    const handleSubmit =  async (e) => {
+        e.preventDefault()
+        const newPost = { 
+            username:user.username,
+            titulo,
+            description
+        }
+        if(foto){
+            const data = formData()
+            const fotoNome = Date.now() + foto.name
+            data.append("name",fotoNome)
+            data.append("foto",foto)
+            newPost.foto = fotoNome
+            try{
+                await axios.post("/upload", data)
+            }cath(err){
+
+            }
+            try{
+                const res = await axios.post("/posts", newPost)
+                window.location.replace("/post"+res.data._id)
+            }catch(err){
+
+            }
+        }
+        
         try {           
             return await api.postForm(dados); 
 
@@ -19,13 +44,16 @@ function Postar() {
       };
     return (
         <div className="postar">
-            <img src="https://images.pexels.com/photos/3512847/pexels-photo-3512847.jpeg?cs=srgb&dl=pexels-angelo-duranti-3512847.jpg&fm=jpg" className="postarImagem"/>
-            <form className="postarFormulario">
+            {foto && (
+                <img src={URL.createObjectURL(foto)} className="postarImagem" alt="" />
+            )}
+            
+            <form className="postarFormulario" onSubmit={handleSubmit}>
                 <div className="postarFormularioGrupo">
                     <label htmlFor="fileInput" >
                         <i className="postarIcon fas fa-plus-circle"></i>
                     </label>
-                    <input type="file" id='fileInput' className="fileEstilo" onChange = {(event) => setImagem(event.target.files[0])} />
+                    <input type="file" id='fileInput' className="fileEstilo" onChange = {e=>setFoto(e.target.files[0])} />
                     <input type="text" placeholder="Titulo" className="textEstilo" autofocus={true} onChange = {(event) => setTitulo(event.target.value)}/>
                     
                 </div>
@@ -34,7 +62,7 @@ function Postar() {
                     </textarea>
 
                 </div>
-                <button className="postarSubmit" onClick = {submit}>
+                <button className="postarSubmit" type="submit">
                     POSTAR
                 </button>
             </form>
