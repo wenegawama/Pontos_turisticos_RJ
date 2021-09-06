@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
 import './navBar.css'
 
 
@@ -17,8 +17,9 @@ export default function NavBar() {
             
             <div className="navcenter">
               <ul className="navlist">
-                <li className="navlistitem"><Link to="/">HOME</Link></li>
-                <li className="navlistitem"><Link to="/">SOBRE</Link></li>
+                <li className="navlistitem">
+                  <Link className="link" to="/">HOME</Link>
+                </li>
                 <li className="navlistitem"><Link to="/postar">POSTAR</Link></li>
                 <li className="navlistitem">{user && "LOGOUT"}</li>
               </ul>
@@ -27,10 +28,10 @@ export default function NavBar() {
               {
                 user ? (<img className="menuImg" src="https://img.ibxk.com.br/2019/02/17/17124052466014.jpg?w=704" />) : (
                   <ul className="navlist">
-                    <li>
+                    <li className="navlistitem">
                       <Link className="link" to="/login">LOGIN</Link>
-                      <Link className="link" to="/registrar">REGISTRAR</Link>
-                    </li>
+                      <Link className="link" to="/login">REGISTRAR</Link>
+</li>
                   </ul>
                 )
               }

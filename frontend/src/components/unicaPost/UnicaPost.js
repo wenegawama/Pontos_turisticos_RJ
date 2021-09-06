@@ -1,9 +1,10 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
+import { Link } from 'react-router-dom'
 import './unicaPost.css'
 
-function unicaPost() {
+function UnicaPost() {
     const location = useLocation()
     const path = location.pathname.split("/")[2]
     const [post,setPost] = useState({})
@@ -20,7 +21,6 @@ function unicaPost() {
             <div className="unicaPostContainer">
             {post.foto && (
                 <img src={post.foto} alt="" className="unicaPostImg" />
-
             )}
                 <h1 className="uniquePostTitulo" >
                 {post.titulo}
@@ -30,7 +30,11 @@ function unicaPost() {
                 </div>
             </h1>
             <div className="infoUniquePost">
-                <span  className="autorUniquePost">De: <b>{post.username}</b></span>
+                <span  className="autorUniquePost">De:
+                <Link to={`/?user=${post.username}`} className="link">
+                <b>{post.username}</b>                
+                </Link>
+                </span>
                 <span  className="tempoUniquePost">{new Date(post.createdAt).toDateString} </span>
             </div>
             <p className="descriptionUniquePost">
@@ -41,4 +45,4 @@ function unicaPost() {
     )
 }
 
-export default unicaPost
+export default UnicaPost

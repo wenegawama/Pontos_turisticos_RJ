@@ -14,7 +14,7 @@ function Login() {
                     <input type="password" className="loginInput" placeholder="Escreva sua senha"/>
                     <button className="loginButton">Login</button>
                 </form>
-                <Link to="/registrar">Registrar</Link>
+                <Link className="link" to="/registrar">Registrar</Link>
             </div>
             
         </div>

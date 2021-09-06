@@ -10,11 +10,11 @@ import {
   Switch,
   Route,
   Link
-} from "react-router-dom";
+} from "react-router-dom"
 
 
 function App() {
-  const user =true
+  const user = false
   return (
     <Router>
       <NavBar />
